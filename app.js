@@ -3,11 +3,7 @@ var express = require('express', 'http'),
   http = require('http'),
   request = require('sync-request');
 
-  app.get('/', function(req, res) {
-  res.send('Check your Console!');
-  getResult('/');
-  res.end();
-});
+getResult('/');
 
 function getResult(query) {
   var data = request('GET', 'http://example.com' + query, {
@@ -21,7 +17,3 @@ function getResult(query) {
     getResult(locals.next);
   }
 }
-
-app.listen(3000, function() {
-  console.log('listening on port 3000');
-});
